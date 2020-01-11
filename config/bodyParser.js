@@ -75,7 +75,8 @@ module.exports = {
   */
   form: {
     types: [
-      'application/x-www-form-urlencoded'
+      'application/x-www-form-urlencoded',
+      'application/json;charset=utf-8'
     ]
   },
 
