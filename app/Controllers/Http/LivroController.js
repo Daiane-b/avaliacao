@@ -45,13 +45,13 @@ class LivroController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async store ({ request, auth }) {
+  async store ({ request, auth, response }) {
     const { id } = auth.user
     const data = request.only(["codigo", "titulo", "autor", "ano"])
 
     const livro = await book.create({...data, user_id: id})
 
-    return livro
+    return response.status(200).json({data: livro, message: 'Insert successfull', status: true});
   }
 
   /**

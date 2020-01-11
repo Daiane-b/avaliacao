@@ -2,12 +2,12 @@
 
 
 class SessionController {
-    async create ({ request, auth }) { 
+    async create ({ request, auth, response }) { 
         const { email, password } = request.all()
     
         const token = await auth.attempt(email, password)
     
-        return token
+        return response.status(200).json({data: token, message: 'Login successfull', status: true});
       }
 }
 
